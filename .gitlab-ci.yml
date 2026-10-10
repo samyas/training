@@ -1,0 +1,19 @@
+stages:
+  - build
+  - test
+
+build_job:
+  stage: build
+  image: node:20-alpine
+  before_script:
+    - npm ci
+  script:
+    - npm install
+
+test_job:
+  stage: test
+  image: node:20-alpine
+  before_script:
+    - npm ci
+  script:
+    - npm test
